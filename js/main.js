@@ -23,8 +23,10 @@ function renderProjects() {
     const [title, desc] = p[currentLang];
     const hidden = currentFilter !== "all" && p.cat !== currentFilter ? " hidden" : "";
     return `<article class="project reveal in${hidden}" data-cat="${p.cat}">
-      <div class="project-icon">${svg(p.icon)}</div>
-      <span class="cat">${t.cats[p.cat]}</span>
+      <div class="project-top">
+        <div class="project-icon">${svg(p.icon)}</div>
+        <span class="cat">${t.cats[p.cat]}</span>
+      </div>
       <h3>${title}</h3>
       <p>${desc}</p>
       <div class="tags">${p.tags.map(tag => `<span>${tag}</span>`).join("")}</div>
@@ -74,8 +76,12 @@ navLinks.querySelectorAll("a").forEach(a => a.addEventListener("click", () => na
 
 document.getElementById("year").textContent = new Date().getFullYear();
 
+// Tech strip: the list is doubled so the -50% scroll loops seamlessly
+document.getElementById("marquee").innerHTML =
+  [...MARQUEE, ...MARQUEE].map(item => `<span>${item}</span>`).join("");
+
 // Reveal static sections on scroll
-document.querySelectorAll(".section-head, .about-body, .timeline > li, .edu-card, .langs, .contact-inner")
+document.querySelectorAll(".section-head, .statement, .about-grid, .service, .timeline > li, .edu-card, .langs, .contact-inner")
   .forEach(el => el.classList.add("reveal"));
 const io = new IntersectionObserver(entries => entries.forEach(e => {
   if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }

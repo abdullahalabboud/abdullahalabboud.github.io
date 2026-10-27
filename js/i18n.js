@@ -12,7 +12,7 @@ const I18N = {
     "about.title": "About Me",
     "about.p1": "Computer Engineer specializing in artificial intelligence, computer vision and real-world simulation. I have 3+ years of hands-on experience building Unreal Engine simulations, real-time object detection systems (YOLOv5/YOLOv8, CNN), synthetic dataset pipelines, and embedded communication systems on STM32, Raspberry Pi and NVIDIA Jetson.",
     "about.p2": "My background spans Python, C/C++, C#, Dart and Java, with cross-platform delivery using Flutter and Django — and a long-standing side practice in visual design and 3D.",
-    "about.f1k": "Based in", "about.f1v": "Istanbul, Turkey",
+    "about.f1k": "Based in", "about.f1v": "Syria",
     "about.f2k": "Education", "about.f2v": "B.Sc. Computer Engineering",
     "about.f3k": "Focus", "about.f3v": "AI · Simulation · Embedded",
     "exp.title": "Experience",
@@ -53,7 +53,7 @@ const I18N = {
     "about.title": "نبذة عني",
     "about.p1": "مهندس حاسوب متخصص في الذكاء الاصطناعي والرؤية الحاسوبية ومحاكاة العالم الحقيقي، بخبرة عملية تزيد على 3 سنوات في بناء بيئات المحاكاة باستخدام Unreal Engine، وأنظمة كشف الأجسام في الزمن الحقيقي (YOLOv5 وYOLOv8 وCNN)، وأدوات توليد البيانات الاصطناعية، وأنظمة الاتصال المدمجة على STM32 وRaspberry Pi وNVIDIA Jetson.",
     "about.p2": "أمتلك خلفية برمجية في Python وC/C++‎ وC#‎ وDart وJava، وخبرة في تطوير التطبيقات متعددة المنصات باستخدام Flutter وDjango، إلى جانب ممارسة طويلة في التصميم البصري والتصميم ثلاثي الأبعاد.",
-    "about.f1k": "مكان الإقامة", "about.f1v": "إسطنبول، تركيا",
+    "about.f1k": "مكان الإقامة", "about.f1v": "سوريا",
     "about.f2k": "التعليم", "about.f2v": "بكالوريوس هندسة الحاسوب",
     "about.f3k": "مجال التركيز", "about.f3v": "ذكاء اصطناعي · محاكاة · أنظمة مدمجة",
     "exp.title": "الخبرات المهنية",
@@ -94,7 +94,7 @@ const I18N = {
     "about.title": "Hakkımda",
     "about.p1": "Yapay zekâ, bilgisayarlı görü ve gerçek dünya simülasyonu alanlarında uzmanlaşmış bir Bilgisayar Mühendisiyim. Unreal Engine simülasyonları, gerçek zamanlı nesne tespit sistemleri (YOLOv5/YOLOv8, CNN), sentetik veri seti üretim araçları ve STM32, Raspberry Pi ile NVIDIA Jetson üzerinde gömülü iletişim sistemleri geliştirme konusunda 3 yılı aşkın uygulamalı deneyime sahibim.",
     "about.p2": "Python, C/C++, C#, Dart ve Java bilgisine; Flutter ve Django ile çok platformlu uygulama geliştirme deneyimine ve uzun süredir devam eden görsel tasarım ve 3D çalışmalarına sahibim.",
-    "about.f1k": "Konum", "about.f1v": "İstanbul, Türkiye",
+    "about.f1k": "Konum", "about.f1v": "Suriye",
     "about.f2k": "Eğitim", "about.f2v": "Bilgisayar Mühendisliği Lisans",
     "about.f3k": "Odak", "about.f3v": "Yapay Zekâ · Simülasyon · Gömülü",
     "exp.title": "Deneyim",
@@ -179,3 +179,57 @@ const SKILLS = [
   { en: "Databases", ar: "قواعد البيانات", tr: "Veritabanları", items: ["SQL Server", "PostgreSQL", "SQLite", "MongoDB"] },
   { en: "Design Tools", ar: "أدوات التصميم", tr: "Tasarım Araçları", items: ["Photoshop", "Illustrator", "After Effects", "Premiere Pro", "Figma"] }
 ];
+
+// Strings added with the dark redesign
+Object.assign(I18N.en, {
+  "hero.big": "Alabboud",
+  "hero.tag": "AI & Simulation Developer based in Syria",
+  "about.kicker": "About",
+  "about.statement": "Building intelligent systems that see, simulate and connect.",
+  "svc.kicker": "What I do",
+  "svc.title": "Three disciplines, one system",
+  "svc.1t": "AI & Computer Vision",
+  "svc.1d": "Detection models (YOLOv5/v8, CNN) and dataset pipelines that turn video into decisions.",
+  "svc.2t": "Real-world Simulation",
+  "svc.2d": "Unreal Engine environments driven by Cesium geospatial data and MQTT, plus synthetic training data.",
+  "svc.3t": "Embedded & Communication",
+  "svc.3d": "Firmware for STM32, Raspberry Pi and Jetson, linked over UART, TCP/UDP, gRPC, MQTT and ZeroMQ.",
+  "exp.kicker": "Career", "proj.kicker": "Work", "skills.kicker": "Toolkit",
+  "edu.kicker": "Background", "lang.kicker": "Communication"
+});
+
+Object.assign(I18N.ar, {
+  "hero.big": "العبود",
+  "hero.tag": "مطوّر ذكاء اصطناعي ومحاكاة، مقيم في سوريا",
+  "about.kicker": "نبذة",
+  "about.statement": "أبني أنظمة ذكية ترى، وتحاكي، وتتواصل.",
+  "svc.kicker": "ما أقدّمه",
+  "svc.title": "ثلاثة تخصصات في منظومة واحدة",
+  "svc.1t": "الذكاء الاصطناعي والرؤية الحاسوبية",
+  "svc.1d": "نماذج كشف (YOLOv5/v8 وCNN) وأدوات لبناء البيانات تحوّل الفيديو إلى قرارات.",
+  "svc.2t": "محاكاة العالم الحقيقي",
+  "svc.2d": "بيئات Unreal Engine مدعومة ببيانات Cesium الجغرافية وMQTT، مع توليد بيانات تدريب اصطناعية.",
+  "svc.3t": "الأنظمة المدمجة والاتصالات",
+  "svc.3d": "برمجيات لـ STM32 وRaspberry Pi وJetson، مترابطة عبر UART وTCP/UDP وgRPC وMQTT وZeroMQ.",
+  "exp.kicker": "المسيرة", "proj.kicker": "الأعمال", "skills.kicker": "الأدوات",
+  "edu.kicker": "الخلفية", "lang.kicker": "التواصل"
+});
+
+Object.assign(I18N.tr, {
+  "hero.big": "Alabboud",
+  "hero.tag": "Suriye'de yaşayan Yapay Zekâ & Simülasyon Geliştiricisi",
+  "about.kicker": "Hakkımda",
+  "about.statement": "Gören, simüle eden ve bağlanan akıllı sistemler inşa ediyorum.",
+  "svc.kicker": "Neler yapıyorum",
+  "svc.title": "Üç disiplin, tek sistem",
+  "svc.1t": "Yapay Zekâ & Bilgisayarlı Görü",
+  "svc.1d": "Videoyu karara dönüştüren tespit modelleri (YOLOv5/v8, CNN) ve veri seti araçları.",
+  "svc.2t": "Gerçek Dünya Simülasyonu",
+  "svc.2d": "Cesium coğrafi verileri ve MQTT ile çalışan Unreal Engine ortamları ve sentetik eğitim verisi.",
+  "svc.3t": "Gömülü Sistemler & İletişim",
+  "svc.3d": "STM32, Raspberry Pi ve Jetson için yazılım; UART, TCP/UDP, gRPC, MQTT ve ZeroMQ ile bağlantı.",
+  "exp.kicker": "Kariyer", "proj.kicker": "Çalışmalar", "skills.kicker": "Araçlar",
+  "edu.kicker": "Geçmiş", "lang.kicker": "İletişim"
+});
+
+const MARQUEE = ["Unreal Engine", "YOLOv8", "Python", "Cesium", "STM32", "NVIDIA Jetson", "Flutter", "Django", "MQTT", "ZeroMQ", "gRPC", "C/C++", "Raspberry Pi", "Blender"];
