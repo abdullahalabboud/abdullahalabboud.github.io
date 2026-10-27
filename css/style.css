@@ -94,14 +94,24 @@ html[lang="ar"] .kicker { letter-spacing: 0; font-size: .9rem; }
 .hero-cta { display: flex; gap: 12px; margin-top: 30px; flex-wrap: wrap; }
 .hero-photo { position: relative; align-self: end; justify-self: center; width: 100%; max-width: 470px; }
 .hero-photo img {
-  width: 100%; aspect-ratio: 1 / 1.08; object-fit: cover; object-position: 50% 20%;
-  /* fade bottom and sides into the page so the giant name sits on top */
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 14%, #000 55%, transparent 98%), linear-gradient(to right, transparent 0%, #000 14%, #000 86%, transparent 100%);
-  -webkit-mask-composite: source-in;
-  mask-image: linear-gradient(to bottom, transparent 0%, #000 14%, #000 55%, transparent 98%), linear-gradient(to right, transparent 0%, #000 14%, #000 86%, transparent 100%);
-  mask-composite: intersect;
-  filter: saturate(.92) contrast(1.04);
+  width: 100%; height: auto;
+  /* cut-out PNG: only fade the bottom so the giant name sits over it */
+  -webkit-mask-image: linear-gradient(to bottom, #000 62%, transparent 97%);
+  mask-image: linear-gradient(to bottom, #000 62%, transparent 97%);
+  filter: drop-shadow(0 30px 60px rgba(0, 0, 0, .5));
 }
+.hero-photo::before {
+  content: ""; position: absolute; inset: 12% 8% 0; z-index: -1; border-radius: 50% 50% 0 0;
+  background: radial-gradient(circle at 50% 35%, var(--navy-2) 0%, var(--navy) 45%, transparent 72%);
+  opacity: .9;
+}
+.socials { display: flex; gap: 10px; margin-top: 26px; }
+.socials a {
+  width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center;
+  border: 1px solid var(--line); background: var(--surface); color: var(--grey-300); transition: .2s;
+}
+.socials a:hover { color: var(--white); border-color: var(--grey-700); transform: translateY(-2px); }
+.socials svg { width: 17px; height: 17px; }
 .hero-stats { list-style: none; align-self: center; display: flex; flex-direction: column; gap: 26px; padding-bottom: 40px; }
 .hero-stats li { border-inline-start: 1px solid var(--line); padding-inline-start: 18px; }
 .hero-stats strong { display: block; color: var(--white); font-size: 2rem; font-weight: 600; line-height: 1.1; }
@@ -134,7 +144,11 @@ html[lang="ar"] .hero-name { font-family: var(--font-ar); font-weight: 800; lett
 html[lang="ar"] .section-head h2, html[lang="ar"] .contact h2, html[lang="ar"] .statement { letter-spacing: 0; line-height: 1.4; }
 
 .statement { color: var(--white); font-size: clamp(2rem, 4.8vw, 3.8rem); font-weight: 600; line-height: 1.12; letter-spacing: -.03em; max-width: 900px; }
-.about-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 60px; margin-top: 50px; }
+.about-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 60px; margin-top: 50px; align-items: start; }
+.about-photo { position: relative; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); aspect-ratio: 4 / 5; }
+.about-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; filter: saturate(.85); }
+.about-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(7, 8, 11, .85)); }
+.about-body .facts { margin-top: 28px; grid-template-columns: repeat(3, 1fr); }
 .about-body p { font-size: 1.05rem; margin-bottom: 16px; }
 .facts { display: grid; gap: 14px; }
 .facts div { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 16px 20px; }
@@ -217,13 +231,22 @@ html[dir="rtl"] .langs i::after { background: linear-gradient(270deg, var(--navy
 /* ---------- Contact / Footer ---------- */
 .contact { padding: 40px 0 120px; }
 .contact-inner {
-  text-align: center; border-radius: 32px; padding: 90px 30px;
-  background: radial-gradient(700px 360px at 50% 0%, var(--navy-glow), transparent 70%), var(--surface);
+  position: relative; overflow: hidden;
+  display: grid; grid-template-columns: 1.3fr 0.7fr; align-items: end; gap: 20px;
+  border-radius: 32px; padding-top: 80px; padding-inline: 60px 0;
+  background: radial-gradient(700px 360px at 30% 0%, var(--navy-glow), transparent 70%), var(--surface);
   border: 1px solid var(--line);
 }
-.contact h2 { font-size: clamp(2.2rem, 5.5vw, 4.2rem); margin: 22px auto 16px; max-width: 760px; letter-spacing: -.03em; line-height: 1.1; }
-.contact p { max-width: 520px; margin-inline: auto; }
-.contact-links { display: flex; gap: 12px; justify-content: center; margin-top: 36px; flex-wrap: wrap; }
+.contact-text { padding-bottom: 80px; }
+.contact-photo {
+  width: 100%; max-width: 380px; justify-self: end; align-self: end;
+  filter: grayscale(1) contrast(1.05) brightness(.95) drop-shadow(0 20px 40px rgba(0,0,0,.5));
+  -webkit-mask-image: linear-gradient(to bottom, #000 75%, transparent);
+  mask-image: linear-gradient(to bottom, #000 75%, transparent);
+}
+.contact h2 { font-size: clamp(2.2rem, 4.8vw, 3.8rem); margin: 22px 0 16px; max-width: 640px; letter-spacing: -.03em; line-height: 1.1; }
+.contact p { max-width: 520px; }
+.contact-links { display: flex; gap: 12px; margin-top: 36px; flex-wrap: wrap; }
 .footer { border-top: 1px solid var(--line); color: var(--grey-500); font-size: .85rem; }
 .footer-inner { display: flex; justify-content: space-between; padding: 26px 0; }
 .footer a:hover { color: var(--white); }
@@ -245,6 +268,12 @@ html[dir="rtl"] .langs i::after { background: linear-gradient(270deg, var(--navy
   .service-num { margin-bottom: 30px; }
   .about-grid, .edu-wrap { grid-template-columns: 1fr; gap: 30px; }
   .timeline > li { grid-template-columns: 1fr; gap: 6px; }
+  .about-photo { max-width: 420px; }
+  .contact-inner { grid-template-columns: 1fr; padding-inline: 30px; }
+  .contact-photo { justify-self: center; max-width: 300px; }
+  .contact-text { padding-bottom: 0; text-align: center; }
+  .contact h2, .contact p { margin-inline: auto; }
+  .contact-links { justify-content: center; }
 }
 @media (max-width: 760px) {
   .nav { top: 10px; }
@@ -270,5 +299,7 @@ html[dir="rtl"] .langs i::after { background: linear-gradient(270deg, var(--navy
   .timeline > li, .project, .service { padding: 24px; }
   .projects { grid-template-columns: 1fr; }
   .container { width: calc(100% - 32px); }
-  .contact-inner { padding: 60px 20px; }
+  .contact-inner { padding: 50px 20px 0; }
+  .about-body .facts { grid-template-columns: 1fr; }
+  .socials { justify-content: center; }
 }
